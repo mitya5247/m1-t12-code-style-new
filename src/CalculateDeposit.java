@@ -6,12 +6,12 @@ public class CalculateDeposit {
     int period;
     int action;
 
-double calculateComplexPercentFunction(double a, double y,int d ) {
+double calculateComplexPercentFunction(double a, double y,int d ) { //В правилах было сказано, что только циклы могут иметь переменные с названием i,j,k и т.д.
        double pay = a * Math.pow((1 + y/ 12), 12 *d);
           return rnd(pay, 2);
   }
-  double calculateSimplePercentFunction(double doubleAmount,double doubleYearRate, int deposit_period) {
-         return rnd(doubleAmount+doubleAmount * doubleYearRate *deposit_period, 2);
+  double calculateSimplePercentFunction(double doubleAmount,double doubleYearRate, int deposit_period) { // В названиях переменных не должнен быть указан их тип
+         return rnd(doubleAmount+doubleAmount * doubleYearRate *deposit_period, 2);//А также им не следует иметь такие имена, как Amount (типо не понятно что она в себе содержит)
     }
     double rnd(double value ,int places) {
        double scale = Math.pow(10, places);
@@ -29,7 +29,7 @@ double calculateComplexPercentFunction(double a, double y,int d ) {
         action = scanner.nextInt();
         double amountMoney = 0;
         if (action == 1) {
-            amountMoney = calculateSimplePercentFunction(amount, 0.06, period);
+            amountMoney = calculateSimplePercentFunction(amount, 0.06, period); //Как и писал выше у методов тоже не должно быть в название function, если только это не математическое вычисление
         } else if (action == 2) {
             amountMoney = calculateComplexPercentFunction(amount, 0.06, period);
         }
